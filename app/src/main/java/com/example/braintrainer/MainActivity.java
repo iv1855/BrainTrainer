@@ -11,28 +11,33 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView textViewQuestion;
     private TextView textViewTimer;
+    private TextView textViewScore;
+    private TextView textViewOpinion0;
+    private TextView textViewOpinion1;
+    private TextView textViewOpinion2;
+    private TextView textViewOpinion3;
+
+    private String question;
+    private int rightAnswer;
+    private int rightAnswerPosition;
+    private boolean isPositive;
+    private int min = 5;
+    private int max = 30;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textViewTimer = findViewById(R.id.textViewTimer);
-        CountDownTimer timer = new CountDownTimer(6000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                int seconds = (int) (millisUntilFinished / 1000);
-                seconds++;
-                textViewTimer.setText(Integer.toString(seconds));
-            }
-
-            @Override
-            public void onFinish() {
-                Toast.makeText(MainActivity.this, "Таймер завершен", Toast.LENGTH_SHORT).show();
-                textViewTimer.setText("0");
-            }
-        };
-        timer.start();
+        textViewOpinion0 = findViewById(R.id.textViewOpinion0);
+        textViewOpinion1 = findViewById(R.id.textViewOpinion1);
+        textViewOpinion2 = findViewById(R.id.textViewOpinion2);
+        textViewOpinion3 = findViewById(R.id.textViewOpinion3);
+        textViewQuestion = findViewById(R.id.textViewQuestion);
+        textViewScore = findViewById(R.id.textViewScore);
 
     }
 }
